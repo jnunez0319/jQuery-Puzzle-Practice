@@ -1,5 +1,7 @@
 # jQuery-Puzzle-Practice
-Assignment for practicing javaScript, jQuery, HTML, CSS.
+Assignment for practicing javaScript, jQuery, HTML, and CSS.
+
+Open via ```jQ.html```
 
 ## Details
 jQuery is a cross-platform JavaScript library designed to simplify the client-side scripting of HTML.
@@ -16,3 +18,5 @@ When you load the First Puzzle page, the pieces of the puzzle are distrbuted aro
 The Second Puzzle page should allow you to solve the same puzzle by simply dragging all the pieces to their final position. It should use the jQuery UI "draggable" function.
 
 Here is a screenshot of a possible solution to the second "Draggable" page:
+
+![image](https://github.com/jnunez0319/jQuery-Puzzle-Practice/assets/98064227/1f3a2ae2-6ee0-447d-b757-8caf03d7ea0b)
