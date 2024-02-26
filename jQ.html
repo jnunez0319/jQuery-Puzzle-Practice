@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h2>Jorge's Glorious Puzzle Adventure</h2>
+    <p><b>For COP4020 Spring 2024</b><br>
+        Select one of the two puzzle types below.
+    </p>
+    <ul id="menu">
+        <li><a href="./first_puzzle.html" id="first_puzzle_link">First Puzzle</a></li>
+        <li><a href="./second_puzzle.html" id="second_puzzle_link">Second Puzzle</a></li>
+    </ul>
+    <p><i>By: Jorge Nunez</i></p>
+
+    <script src="jquery.min.js"></script>
+    <script id="menu">
+        $(document).ready(function() {
+            // Initial page load
+            $('#content').load('first_puzzle.html');
+
+            // Click event for First Puzzle link
+            $('#first_puzzle_link').click(function(e) {
+                e.preventDefault(); // Prevent default link behavior
+                $('#content').load('first_puzzle.html'); // Load first puzzle page
+            });
+
+            // Click event for Second Puzzle link
+            $('#second_puzzle_link').click(function(e) {
+                e.preventDefault(); // Prevent default link behavior
+                $('#content').load('second_puzzle.html'); // Load second puzzle page
+            });
+        });
+    </script>
+
+
+
+
+</body>
+</html>

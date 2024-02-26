@@ -1,0 +1,68 @@
+/* CSS for the navigation menu */
+#menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+#menu li {
+    display: inline;
+    margin-right: 10px;
+}
+
+#menu li a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#menu li a:hover {
+    background-color: #f0f0f0;
+}
+
+#start {
+    background-color: #008800;
+    color: #f0f0f0;
+}
+#back {
+    background-color: #363636;
+    color: #f0f0f0;
+}
+
+.control-buttons {
+    position: fixed; /* Fix the buttons to the viewport */
+    top: 20px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    z-index: 999;
+}
+
+.puzzle-piece {
+    position: absolute;
+}
+
+#p21 {
+    width: 200px;
+}
+#p23 {
+    width: 215px;
+}
+#p24 {
+    height: 132px;
+    width: 225px;
+}
+#p41 {
+    height: 160px;
+    width: 200px;
+}
+#p42 {
+    height: 140px;
+    width: 250px;
+}
+#p44 {
+    height: 140px;
+    width: 220px;
+}
+#p22 {
+    z-index: 50;
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Puzzle Page</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div> <!-- Puzzle pieces -->
+        <img id="p11" class="puzzle-piece" src="jQ-images/p1_1.png" alt="Piece 1-1">
+        <img id="p12" class="puzzle-piece" src="jQ-images/p1_2.png" alt="Piece 1-2">
+        <img id="p13" class="puzzle-piece" src="jQ-images/p1_3.png" alt="Piece 1-3">
+        <img id="p14" class="puzzle-piece" src="jQ-images/p1_4.png" alt="Piece 1-4">
+
+        <img id="p21" class="puzzle-piece" src="jQ-images/p2_1.png" alt="Piece 2-1">
+        <img id="p22" class="puzzle-piece" src="jQ-images/p2_2.png" alt="Piece 2-2">
+        <img id="p23" class="puzzle-piece" src="jQ-images/p2_3.png" alt="Piece 2-3">
+        <img id="p24" class="puzzle-piece" src="jQ-images/p2_4.png" alt="Piece 2-4">
+
+        <img id="p31" class="puzzle-piece" src="jQ-images/p3_1.png" alt="Piece 3-1">
+        <img id="p32" class="puzzle-piece" src="jQ-images/p3_2.png" alt="Piece 3-2">
+        <img id="p33" class="puzzle-piece" src="jQ-images/p3_3.png" alt="Piece 3-3">
+        <img id="p34" class="puzzle-piece" src="jQ-images/p3_4.png" alt="Piece 3-4">
+
+        <img id="p41" class="puzzle-piece" src="jQ-images/p4_1.png" alt="Piece 4-1">
+        <img id="p42" class="puzzle-piece" src="jQ-images/p4_2.png" alt="Piece 4-2">
+        <img id="p43" class="puzzle-piece" src="jQ-images/p4_3.png" alt="Piece 4-3">
+        <img id="p44" class="puzzle-piece" src="jQ-images/p4_4.png" alt="Piece 4-4">
+    </div>
+
+    <!-- Control buttons -->
+    <div class="control-buttons">
+        <a href="jQ.html"><button id="back">Back</button></a>
+        <button id="moveUp">Up</button>
+        <button id="moveDown">Down</button>
+        <button id="moveLeft">Left</button>
+        <button id="moveRight">Right</button>
+        <button id="start">Start!</button>
+
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Function to get a random number between min and max
+            function getRandomNumber(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            // Set initial positions of puzzle pieces randomly across the page
+            $('.puzzle-piece').each(function() {
+                var pageWidth = $(window).width(); // Get page width
+                var pageHeight = $(window).height(); // Get page height
+                var pieceWidth = $(this).width(); // Get puzzle piece width
+                var pieceHeight = $(this).height(); // Get puzzle piece height
+                var randomLeft = getRandomNumber(50, pageWidth - pieceWidth - 350); // Generate random left coordinate
+                var randomTop = getRandomNumber(50, pageHeight - pieceHeight- 200); // Generate random top coordinate
+                $(this).css({ left: randomLeft, top: randomTop }); // Set random position
+            });
+
+            // Function to move a puzzle piece to its target position
+            function movePieceToTarget(pieceId, targetLeft, targetTop) {
+                $('#' + pieceId).animate({
+                    left: targetLeft,
+                    top: targetTop
+                }, 1000); // Adjust duration as needed
+            }
+                
+            // Function to move a specific puzzle piece by its ID
+            function movePieceById(pieceId, direction) {
+                var step = 2.5; // Step size for movement
+                var $piece = $('#' + pieceId); // Select puzzle piece by its ID
+
+                // Update position based on direction
+                switch (direction) {
+                    case 'up':
+                        $piece.css('top', $piece.position().top - step);
+                        break;
+                    case 'down':
+                        $piece.css('top', $piece.position().top + step);
+                        break;
+                    case 'left':
+                        $piece.css('left', $piece.position().left - step);
+                        break;
+                    case 'right':
+                        $piece.css('left', $piece.position().left + step);
+                        break;
+                }
+            }
+
+            // Button click handlers for moving the specific puzzle piece
+            $('#moveUp').click(function() {
+                movePieceById('p22', 'up');
+            });
+
+            $('#moveDown').click(function() {
+                movePieceById('p22', 'down');
+            });
+
+            $('#moveLeft').click(function() {
+                movePieceById('p22', 'left');
+            });
+
+            $('#moveRight').click(function() {
+                movePieceById('p22', 'right');
+            });
+
+            $('#start').click(function(){
+                movePieceToTarget('p11', 200, 200);
+                movePieceToTarget('p12', 200, 400);
+                movePieceToTarget('p13', 200, 580);
+                movePieceToTarget('p14', 200, 800);
+
+                movePieceToTarget('p21', 310, 200);
+                //movePieceToTarget('p22', 332, 380); //temp
+                movePieceToTarget('p23', 310, 595);
+                movePieceToTarget('p24', 335, 778);
+
+                movePieceToTarget('p31', 465, 200);
+                movePieceToTarget('p32', 444, 403);
+                movePieceToTarget('p33', 465, 580);
+                movePieceToTarget('p34', 445, 800);
+
+                movePieceToTarget('p41', 578, 200);
+                movePieceToTarget('p42', 600, 378);
+                movePieceToTarget('p43', 578, 602);
+                movePieceToTarget('p44', 600, 780);
+            })
+
+            // Function to move a puzzle piece to its target position
+            function movePieceToTarget(pieceId, targetTop, targetLeft) {
+                $('#' + pieceId).animate({
+                    left: targetLeft,
+                    top: targetTop
+                }, 300); // Adjust duration as needed
+            }
+        
+        });
+    </script>
+</body>
+</html>
